@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .feedback-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .feedback-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .feedback-container input,
+    .feedback-container textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .feedback-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .feedback-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      color: green;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="feedback-container">
+    <h2>Send Feedback</h2>
+    <form action="https://formsubmit.co/samayraj52@gmail.com" method="POST" id="feedbackForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Feedback" required></textarea>
+
+      <!-- Optional Hidden Inputs -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
+
+      <button type="submit">Submit</button>
+    </form>
+    <div class="thank-you" id="thankYouMessage">Thank you for your feedback!</div>
+  </div>
+
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const thankYou = document.getElementById('thankYouMessage');
+
+    form.addEventListener('submit', function () {
+      setTimeout(() => {
+        form.style.display = 'none';
+        thankYou.style.display = 'block';
+      }, 1000); // slight delay for user experience
+    });
+  </script>
+
+</body>
+</html>
